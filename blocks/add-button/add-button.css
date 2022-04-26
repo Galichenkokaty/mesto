@@ -1,0 +1,10 @@
+.add-button {
+    width: 150px;
+    height: 50px;
+    margin: auto;
+    margin-right: 0;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    font-size: 40px;
+}
