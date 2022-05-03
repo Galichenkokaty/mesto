@@ -20,12 +20,12 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup__container/popup__container.css);
-@import url(../blocks/popup__body/popup__body.css);
-@import url(../blocks/popup__close/popup__close.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__body/popup__body.css);
+@import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/btn-save/btn-save.css);
-@import url(../blocks/profile__name/profile__name.css);
-@import url(../blocks/profile__information/profile__information.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__information/profile__information.css);
 @import url(../blocks/title-edit/title-edit.css);
 button:hover {
     cursor: pointer;
