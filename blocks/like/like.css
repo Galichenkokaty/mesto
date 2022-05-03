@@ -7,10 +7,10 @@
     height: 19px;
     font-size: 24px;
     margin: 0;
-    background: url(../../image/like.svg);
+    background: url(../../image/like.png);
     border: 0;
 }
 
 .like:focus {
-    background: url(../../image/like_active.svg);
+    background: url(../../image/like_active.png);
 }
