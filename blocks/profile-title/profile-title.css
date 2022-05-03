@@ -4,3 +4,10 @@
     margin: 0;
     line-height: 1;
 }
+
+@media screen and (min-width: 320px) and (max-width: 424px) {
+    .profile-title {
+        font-size: 32px;
+        text-align: center;
+    }
+}

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./font/fonts.css">
     <title>Mesto</title>
 </head>
 
@@ -17,15 +18,71 @@
         <div class="profile-info">
             <img class="avatar" src="./image/sevastopol.jpg">
             <div class="info">
-                <h1 class="profile-title">Севастополь</h1>
+                <h1 class="profile-title">Севастополь <button class="edit-profile">&#8260;</button></h1>
                 <p class="profile-subtitle">Основные достопримечательности</p>
             </div>
-            <button class="edit-profile">&#8260;</button>
+
         </div>
         <button class="add-button">&plus;</button>
     </section>
-    <section class="elements"></section>
-    <footer class="footer"></footer>
+    <div class="popup ">
+        <div class="popup__body">
+            <a class="popup__close" href=""></a>
+            <div class="popup__container">
+                <h2 class="title-edit">Редактировать профиль</h2>
+                <input type="text" placeholder="Имя" class="profile__name">
+                <input type="text" placeholder="О себе" class="profile__information">
+                <button class="btn-save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+    <section class="elements">
+        <div class="element">
+            <img class="image" alt="Мыс_Фиолент" src="./image/fiolent.jpg">
+            <div class="el-text">
+                <p class="el-title">Мыс Фиолент</p>
+                <button class="like"></button>
+            </div>
+        </div>
+        <div class="element">
+            <img class="image" alt="35_Береговая_батарея" src="./image/35batareya.jpg">
+            <div class="el-text">
+                <p class="el-title">35 Береговая батарея</p>
+                <button class="like"></button>
+            </div>
+        </div>
+        <div class="element">
+            <img class="image" alt="Херсонес" src="./image/hersones.jpg">
+            <div class="el-text">
+                <p class="el-title">Херсонес</p>
+                <button class="like"></button>
+            </div>
+        </div>
+        <div class="element">
+            <img class="image" alt="Графская_пристань" src="./image/grafskaya.jpg">
+            <div class="el-text">
+                <p class="el-title">Графская пристань</p>
+                <button class="like"></button>
+            </div>
+        </div>
+        <div class="element">
+            <img class="image" alt="Памятник_Затопленным_короблям" src="./image/zatopl.jpg">
+            <div class="el-text">
+                <p class="el-title">Памятник Затопленным короблям</p>
+                <button class="like"></button>
+            </div>
+        </div>
+        <div class="element">
+            <img class="image" alt="Панорама" src="./image/panorama_oborona_sevastopolja_22.jpg">
+            <div class="el-text">
+                <p class="el-title">Панорама "Оборона Севастополя 1854-1855 гг."</p>
+                <button class="like"></button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p class="copyright">&copy; 2022. Mesto Russia</p>
+    </footer>
     <script src="./script.js"></script>
 </body>
 

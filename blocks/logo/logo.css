@@ -1,7 +1,7 @@
 .logo {
     color: white;
-    width: 142px;
-    height: 32px;
+    max-width: 142px;
+    max-height: 32px;
     margin: 0;
     display: inline;
 }

@@ -1,0 +1,8 @@
+.profile__name {
+    border: 0;
+    border-bottom: 1px solid #545454;
+    margin-top: 54px;
+    margin-left: 34px;
+    max-width: 358px;
+    height: 27px;
+}

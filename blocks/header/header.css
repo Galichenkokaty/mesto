@@ -1,7 +1,26 @@
 .header {
     height: 74px;
-    width: 880px;
+    max-width: 880px;
     margin: auto;
     margin-top: 45px;
     border-bottom: 1px solid #545454;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .header {
+        max-width: 700px;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+    .header {
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 424px) {
+    .header {
+        width: 90%;
+        height: 56px;
+    }
 }

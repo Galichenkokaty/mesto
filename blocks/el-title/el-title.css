@@ -1,0 +1,11 @@
+.el-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+    width: 200px;
+    padding-top: 22px;
+    padding-left: 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

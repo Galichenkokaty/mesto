@@ -1,0 +1,16 @@
+.like {
+    display: inline;
+    position: absolute;
+    right: 15px;
+    bottom: 4px;
+    width: 22px;
+    height: 19px;
+    font-size: 24px;
+    margin: 0;
+    background: url(../../image/like.svg);
+    border: 0;
+}
+
+.like:focus {
+    background: url(../../image/like_active.svg);
+}

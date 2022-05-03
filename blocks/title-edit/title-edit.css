@@ -1,0 +1,14 @@
+.title-edit {
+    font-family: 'Inter bold';
+    font-weight: bold;
+    font-size: 24px;
+    padding-top: 34px;
+    padding-left: 32px;
+    margin: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .title-edit {
+        font-size: 18px;
+    }
+}
