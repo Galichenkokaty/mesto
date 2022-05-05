@@ -1,4 +1,4 @@
-.el-title {
+.element__title {
     font-weight: bold;
     font-size: 24px;
     margin: 0;
@@ -8,4 +8,5 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    line-height: 1;
 }

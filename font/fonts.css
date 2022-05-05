@@ -5,8 +5,7 @@
 
 @font-face {
     font-family: 'Inter bold', 'Arial', 'Helvetica', sans-serif;
-    src: url(../font/Inter/Inter-Bold.otf) format('otf');
-    font-weight: bold;
+    src: url(../font/Inter/Inter-Medium.otf) format('otf');
 }
 
 @font-face {

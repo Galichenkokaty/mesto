@@ -1,14 +1,15 @@
-.profile-name {
+.profile__information {
     border: 0;
+    display: block;
     border-bottom: 1px solid #545454;
-    margin-top: 54px;
     margin-left: 34px;
+    margin-top: 30px;
     width: 358px;
     height: 27px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
-    .profile-name {
+    .profile__information {
         max-width: 238px;
     }
 }

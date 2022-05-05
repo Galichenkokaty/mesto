@@ -1,11 +1,9 @@
 .like {
-    display: inline;
-    position: absolute;
-    right: 15px;
-    bottom: 4px;
+    align-self: flex-end;
     width: 22px;
     height: 19px;
     font-size: 24px;
+    margin-right: 30px;
     margin: 0;
     background: url(../../image/like.png);
     border: 0;

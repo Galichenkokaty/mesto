@@ -1,9 +1,9 @@
-.profile-info {
+.profile__info {
     display: flex;
 }
 
 @media screen and (min-width: 320px) and (max-width: 424px) {
-    .profile-info {
+    .profile__info {
         display: block;
         width: 282px;
         margin: auto;
