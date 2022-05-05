@@ -15,8 +15,8 @@ function clspopup() {
 closePopup.addEventListener('click', clspopup);
 
 let formElement = document.querySelector('.btn-save');
-let nameInput = document.querySelector('.input_name');
-let jobInput = document.querySelector('.input__information');
+let nameInput = document.querySelector('.name');
+let jobInput = document.querySelector('.information');
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
