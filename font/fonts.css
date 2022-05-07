@@ -1,14 +1,17 @@
 @font-face {
-    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
-    src: url(../font/Inter/Inter-Regular.otf) format('otf');
+    font-family: 'Inter';
+    src: url(../font/Inter/Inter-Regular.woff) format('woff'), url(../font/Inter/Inter-Regular.woff2) format('woff2');
+    font-weight: lighter;
 }
 
 @font-face {
-    font-family: 'Inter bold', 'Arial', 'Helvetica', sans-serif;
-    src: url(../font/Inter/Inter-Medium.otf) format('otf');
+    font-family: 'Inter';
+    src: url(../font/Inter/Inter-Medium.woff) format('woff'), url(../font/Inter/Inter-Medium.woff2) format('woff2');
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: 'Inter normal', 'Arial', 'Helvetica', sans-serif;
-    src: url(../font/Inter/Inter-Black.otf) format('otf');
+    font-family: 'Inter';
+    src: url(../font/Inter/Inter-Black.woff) format('woff'), url(../font/Inter/Inter-Black.woff) format('woff');
+    font-weight: bold;
 }
