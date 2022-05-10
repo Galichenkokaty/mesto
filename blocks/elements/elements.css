@@ -3,8 +3,8 @@
     max-width: 880px;
     row-gap: 20px;
     column-gap: 17px;
-    grid-template-rows: repeat(2, 361px);
-    grid-template-columns: repeat(3, 282px);
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
     margin: auto;
     margin-top: 50px;
 }
