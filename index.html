@@ -11,7 +11,7 @@
 
 <body class="page">
     <header class="header">
-        <img class="logo" src="./image/logo.png" alt="логотип">
+        <img class="logo" src="./image/logo.svg" alt="логотип">
     </header>
     <main class="main">
         <section class="profile">
@@ -23,7 +23,7 @@
                 </div>
                 <button type="button" class="profile__edit"></button>
             </div>
-            <button class="profile__button-add"></button>
+            <button type="button" class="profile__button-add"></button>
         </section>
 
         <section class="elements">
@@ -76,14 +76,16 @@
         <p class="footer__copyright">&copy; 2022. Mesto Russia</p>
     </footer>
     <div class="popup ">
-        <div class="popup__body">
+        <div class="popup__shell">
             <button type="button" class="popup__close"></button>
-            <form class="popup__container">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" placeholder="Имя" class="name">
-                <input type="text" placeholder="О себе" class="information">
-                <button type="button" class="popup__btn-save">Сохранить</button>
-            </form>
+            <div class="popup__body">
+                <form class="popup__container">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input type="text" placeholder="Имя" class="popup__input popup__input_name" name="name">
+                    <input type="text" placeholder="О себе" class="popup__input popup__input_information" name="information">
+                    <button type="submit" class="popup__btn-save">Сохранить</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="./script/index.js"></script>

@@ -10,7 +10,7 @@
 }
 
 .profile__edit:hover {
-    background: url(../../../image/Edit_Button_hover.svg);
+    opacity: 0.6;
     cursor: pointer;
 }
 
