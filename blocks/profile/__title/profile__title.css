@@ -15,10 +15,7 @@
     .profile__title {
         font-size: 32px;
         text-align: center;
-        text-overflow: ellipsis;
         max-width: 300px;
-        overflow: hidden;
-        white-space: nowrap;
     }
 }
 
@@ -26,20 +23,15 @@
     .profile__title {
         font-size: 24px;
         text-align: center;
-        text-overflow: ellipsis;
         max-width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
     }
 }
 
 @media screen and (min-width: 320px) and (max-width: 424px) {
     .profile__title {
         font-size: 27px;
-        text-align: center;
-        text-overflow: ellipsis;
+        text-align: end;
         max-width: 270px;
-        overflow: hidden;
-        white-space: nowrap;
+        line-height: 32px;
     }
 }

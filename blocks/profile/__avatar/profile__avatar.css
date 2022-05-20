@@ -9,5 +9,6 @@
     .profile__avatar {
         margin: auto;
         display: block;
+        margin-bottom: 26px;
     }
 }

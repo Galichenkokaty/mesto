@@ -2,11 +2,10 @@
     height: 24px;
     width: 24px;
     font-size: 16px;
-    margin-top: 25px;
     margin-left: 18px;
     background: url(../../../image/Edit_Button.svg);
     border: 0;
-    flex-direction: row;
+    align-self: center;
 }
 
 .profile__edit:hover {
@@ -20,5 +19,6 @@
         width: 18px;
         background-size: contain;
         margin: 0;
+        margin-left: 10px;
     }
 }
