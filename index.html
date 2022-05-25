@@ -28,57 +28,34 @@
         </section>
 
         <section class="elements">
+            <template class="template__element">
             <article class="element">
-                <img class="element__image" alt="Мыс_Фиолент" src="./image/fiolent.jpg">
+                <img class="element__image" >
                 <div class="element__text">
-                    <h2 class="element__title">Мыс Фиолент</h2>
+                    <h2 class="element__title"></h2>
                     <button class="element__like" type="button"></button>
                 </div>
             </article>
-            <article class="element">
-                <img class="element__image" alt="35_Береговая_батарея" src="./image/35batareya.jpg">
-                <div class="element__text">
-                    <h2 class="element__title">35 Береговая батарея</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" alt="Херсонес" src="./image/hersones.jpg">
-                <div class="element__text">
-                    <h2 class="element__title">Херсонес</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" alt="Графская_пристань" src="./image/grafskaya.jpg">
-                <div class="element__text">
-                    <h2 class="element__title">Графская пристань</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" alt="Памятник_Затопленным_короблям" src="./image/zatopl.jpg">
-                <div class="element__text">
-                    <h2 class="element__title">Памятник Затопленным короблям</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" alt="Панорама" src="./image/panorama_oborona_sevastopolja_22.jpg">
-                <div class="element__text">
-                    <h2 class="element__title">Панорама "Оборона Севастополя 1854-1855 гг."</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-
+          </template>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2022. Mesto Russia</p>
     </footer>
-    <div class="popup ">
+    <div class="popup popup__addElement">
         <div class="popup__body">
-            <button type="button" class="popup__close"></button>
+            <button type="button" class="popup__close" name="closeAdd"></button>
+            <form class="popup__container" name="add-element">
+                <h2 class="popup__title">Новое место</h2>
+                <input type="text" placeholder="Название" class="popup__input popup__input_line_title" name="titleElement">
+                <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
+                <button type="submit" class="popup__btn-save">Создать</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup__editProfile">
+        <div class="popup__body">
+            <button type="button" class="popup__close" name="closeEdit"></button>
             <form class="popup__container" name="edit-profile">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name">
@@ -86,8 +63,8 @@
                 <button type="submit" class="popup__btn-save">Сохранить</button>
             </form>
         </div>
-
     </div>
+
     <script src="./script/index.js"></script>
 </body>
 

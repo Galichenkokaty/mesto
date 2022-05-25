@@ -29,3 +29,4 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/main/main.css);
 @import url(../blocks/popup/__shell/popup__shell.css);
+@import url(../blocks/element/__like/_active/element__like_active.css);
