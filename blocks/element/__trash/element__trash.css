@@ -1,0 +1,36 @@
+.element__trash {
+    background: url(../../../image/Trash.svg);
+    Width: 18px;
+    Height: 19px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 0;
+    left: 244px;
+    bottom: 329px;
+    padding: 0;
+}
+
+.element__trash:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .element__trash {
+        left: 303px;
+    }
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+    .element__trash {
+        left: 248px;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 580px) {
+    .element__trash {
+        left: 172px;
+        bottom: 339px;
+    }
+}

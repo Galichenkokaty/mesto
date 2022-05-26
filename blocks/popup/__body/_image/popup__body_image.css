@@ -1,0 +1,11 @@
+.popup__body_image {
+    max-width: 75vw;
+    max-height: 75vh;
+    min-width: 50vw;
+    min-height: 50vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3%;
+    position: relative;
+}
