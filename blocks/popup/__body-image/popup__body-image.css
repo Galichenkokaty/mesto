@@ -1,6 +1,6 @@
-.popup__body_image {
+.popup__body-image {
     max-width: 75vw;
-    max-height: 75vh;
+    max-height: 75%;
     min-width: 50vw;
     min-height: 50vh;
     margin: auto;

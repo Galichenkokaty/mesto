@@ -2,14 +2,14 @@ let openPopup = document.querySelector('.profile__edit');
 let closeAdd = document.querySelector('button[name="closeAdd"]');
 let closeEdit = document.querySelector('button[name="closeEdit"]');
 const closeImage = document.querySelector('button[name="closeImage"]');
-let popupEditProfile = document.querySelector('.popup__editProfile');
+let popupEditProfile = document.querySelector('.popup_editProfile');
 let formProfile = document.querySelector('form[name="edit-profile"]');
 let nameInput = document.querySelector('.popup__input_line_name');
 let jobInput = document.querySelector('.popup__input_line_information');
 let name = document.querySelector('.profile__title');
 let info = document.querySelector('.profile__subtitle');
 let addElement = document.querySelector('.profile__button-add');
-let popupElement = document.querySelector('.popup__addElement');
+let popupElement = document.querySelector('.popup_addElement');
 const elementContainer = document.querySelector(".elements");
 const elementTemplate = document.querySelector(".template__element").content;
 const title = document.querySelector('.popup__input_line_title');
@@ -66,7 +66,7 @@ function formSubmitElement(evt) {
         Element.remove();
     });
     Element.querySelector('.element__image').addEventListener('click', function() {
-        document.querySelector('.popup__element').classList.add('popup_opened');
+        document.querySelector('.popup_element').classList.add('popup_opened');
         document.querySelector('.element__image').classList.add('popup_opened');
 
         const Element = elementTemplate.querySelector(".element").cloneNode(true);
@@ -76,7 +76,7 @@ function formSubmitElement(evt) {
     })
 
     document.querySelector('.popup__close_image').addEventListener('click', function() {
-        document.querySelector('.popup__element').classList.remove('popup_opened');
+        document.querySelector('.popup_element').classList.remove('popup_opened');
     });
 
     elementContainer.prepend(Element);
@@ -136,7 +136,7 @@ function renderCard({ name, link }) {
         Element.remove();
     });
     Element.querySelector('.element__image').addEventListener('click', function() {
-        document.querySelector('.popup__element').classList.add('popup_opened');
+        document.querySelector('.popup_element').classList.add('popup_opened');
         document.querySelector('.element__image').classList.add('popup_opened');
 
 
@@ -148,7 +148,7 @@ function renderCard({ name, link }) {
     elementContainer.prepend(Element);
 
     document.querySelector('.popup__close_image').addEventListener('click', function() {
-        document.querySelector('.popup__element').classList.remove('popup_opened');
+        document.querySelector('.popup_element').classList.remove('popup_opened');
     });
 }
 render();
