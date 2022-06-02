@@ -20,24 +20,15 @@
                 <div class="profile__text">
                     <h1 class="profile__title">Севастополь</h1>
                     <p class="profile__subtitle">Основные достопримечательности</p>
-                    <button type="button" class="profile__edit"></button>
+                    <button aria-label="edit" type="button" class="profile__edit"></button>
                 </div>
 
             </div>
-            <button type="button" class="profile__button-add"></button>
+            <button aria-label="add" type="button" class="profile__button-add"></button>
         </section>
 
         <section class="elements">
-            <template class="template__element">
-            <article class="element">
-              <button class="element__trash" type="button"></button>
-                <img class="element__image" alt="Картинка в профиле" >
-                <div class="element__text">
-                    <h2 class="element__title"></h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-          </template>
+
         </section>
     </main>
     <footer class="footer">
@@ -46,17 +37,17 @@
     <div class="popup popup_element">
         <div class="popup__body-image">
             <button type="button" class="popup__close popup__close_image" name="closeImage"></button>
-            <img class="popup__image " alt="картинка в профиле">
+            <img class="popup__image" alt="картинка в профиле">
             <p class="popup__text"></p>
         </div>
     </div>
     <div class="popup popup_addElement">
-        <div class="popup__body ">
+        <div class="popup__body">
             <button type="button" class="popup__close" name="closeAdd"></button>
             <form class="popup__container" name="add-element">
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" placeholder="Название" class="popup__input popup__input_line_title" name="titleElement">
-                <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
+                <input required type="text" placeholder="Название" class="popup__input popup__input_line_title" name="titleElement">
+                <input required type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
                 <button type="submit" class="popup__btn-save">Создать</button>
             </form>
         </div>
@@ -66,14 +57,23 @@
             <button type="button" class="popup__close" name="closeEdit"></button>
             <form class="popup__container" name="edit-profile">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name">
-                <input type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information">
+                <input required type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name">
+                <input required type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information">
                 <button type="submit" class="popup__btn-save">Сохранить</button>
             </form>
         </div>
     </div>
-
-    <script src="./script/index.js"></script>
+    <template id="template__element">
+      <article class="element">
+        <button aria-label="trash" class="element__trash" type="button"></button>
+          <img class="element__image" alt="Картинка в профиле" >
+          <div class="element__text">
+              <h2 class="element__title"></h2>
+              <button aria-label="like" class="element__like" type="button"></button>
+          </div>
+      </article>
+    </template>
+    <script defer src="./script/index.js"></script>
 </body>
 
 </html>
