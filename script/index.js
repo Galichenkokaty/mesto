@@ -68,26 +68,11 @@ function editProfileFormSubmitHandler(evt) {
 };
 
 
-
+//Спасибо за помощь)
 function addElementFormSubmitHandler(evt) {
     evt.preventDefault();
 
     renderCard(cardsContainer, createCard({ name: titleInput.value, link: linkInput.value }));
-
-    card.querySelector('.element__like').addEventListener('click', function(evt) {
-        evt.target.classList.toggle('element__like_active');
-    });
-    card.querySelector('.element__trash').addEventListener('click', function() {
-        card.remove();
-    });
-    card.querySelector('.element__image').addEventListener('click', function() {
-        openPopup(popupCardImage);
-
-        const card = cardTemplate.querySelector(".element").cloneNode(true);
-        titlePopupCard.textContent = document.querySelector(".element__title").textContent;
-        imagePopupCard.src = document.querySelector(".element__image").src;
-
-    });
 
     closePopupAdd();
 
