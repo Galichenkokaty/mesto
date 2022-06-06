@@ -122,12 +122,14 @@ const initialCards = [{
     }
 ];
 
-const renderCard = function(container, card) {
-    container.prepend(createCard(card));
+
+
+const renderCard = function(container, cardElement) {
+    container.prepend(cardElement);
 };
 
 initialCards.forEach(function(card) {
-    renderCard(cardsContainer, card);
+    renderCard(cardsContainer, createCard(card));
 });
 
 
