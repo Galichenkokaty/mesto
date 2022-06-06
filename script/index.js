@@ -72,9 +72,7 @@ function editProfileFormSubmitHandler(evt) {
 function addElementFormSubmitHandler(evt) {
     evt.preventDefault();
 
-    const card = cardTemplate.querySelector(".element").cloneNode(true);
-    card.querySelector(".element__title").textContent = titleInput.value;
-    card.querySelector(".element__image").src = linkInput.value;
+    renderCard(cardsContainer, createCard({ name: titleInput.value, link: linkInput.value }));
 
     card.querySelector('.element__like').addEventListener('click', function(evt) {
         evt.target.classList.toggle('element__like_active');
@@ -90,7 +88,7 @@ function addElementFormSubmitHandler(evt) {
         imagePopupCard.src = document.querySelector(".element__image").src;
 
     });
-    cardsContainer.prepend(card);
+
     closePopupAdd();
 
 };
