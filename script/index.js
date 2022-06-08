@@ -76,10 +76,11 @@ function closeImageCard() {
 
 function editProfileFormSubmitHandler(evt) {
     evt.preventDefault();
-
-    name.textContent = nameInput.value;
-    info.textContent = jobInput.value;
-    closePopupEdit();
+    if (name.textContent.length >= 2 && info.textContent.length >= 2) {
+        name.textContent = nameInput.value;
+        info.textContent = jobInput.value;
+        closePopupEdit();
+    };
 };
 
 function addElementFormSubmitHandler(evt) {
@@ -149,21 +150,18 @@ function createCard({ name, link }) {
 
 };
 
-const popupForm = document.querySelector('.popup__container');
-const formInput = popupForm.querySelector('.popup__input');
-
 
 const showError = (formPopup, inputPopup, errorMessage) => {
-    const errorElement = formPopup.querySelector(`.${inputPopup.id}_error`);
+    const errorElement = formPopup.querySelector(`.${inputPopup.id}-error`);
     inputPopup.classList.add('popup__input_type_error');
     errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active');
+    errorElement.classList.add('popup__input_error_active');
 };
 
 const hideError = (formPopup, inputPopup) => {
-    const errorElement = formPopup.querySelector(`.${inputPopup.id}_error`);
-    inputPopup.classList.remove('form__input_type_error');
-    errorElement.classList.remove('form__input-error_active');
+    const errorElement = formPopup.querySelector(`.${inputPopup.id}-error`);
+    inputPopup.classList.remove('popup__input_type_error');
+    errorElement.classList.remove('popup__input_error_active');
     errorElement.textContent.reset;
 };
 
