@@ -34,6 +34,22 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2022. Mesto Russia</p>
     </footer>
+
+    <div class="popup popup_addElement">
+        <div class="popup__body">
+            <button type="button" class="popup__close" name="closeAdd"></button>
+            <form class="popup__container" name="add-element" id="form__add-element">
+                <fieldset class="form-set">
+                    <h2 class="popup__title">Новое место</h2>
+                    <input required id="title-input" type="text" placeholder="Название" class="popup__input popup__input_line_title" name="titleElement" minlength="2" maxlength="30">
+                    <span class="popup__input_error title-input-error"></span>
+                    <input required id="link-input" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
+                    <span class="popup__input_error link-input-error"></span>
+                    <button type="submit" class="popup__btn-save">Создать</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
     <div class="popup popup_element">
         <div class="popup__body-image">
             <button type="button" class="popup__close popup__close_image" name="closeImage"></button>
@@ -41,25 +57,18 @@
             <p class="popup__text"></p>
         </div>
     </div>
-    <div class="popup popup_addElement">
-        <div class="popup__body">
-            <button type="button" class="popup__close" name="closeAdd"></button>
-            <form class="popup__container" name="add-element" id="form__add-element">
-                <h2 class="popup__title">Новое место</h2>
-                <input required type="text" placeholder="Название" class="popup__input popup__input_line_title" name="titleElement">
-                <input required type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
-                <button type="submit" class="popup__btn-save">Создать</button>
-            </form>
-        </div>
-    </div>
     <div class="popup popup_editProfile">
         <div class="popup__body">
             <button type="button" class="popup__close" name="closeEdit"></button>
-            <form class="popup__container" name="edit-profile">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input required type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name">
-                <input required type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information">
-                <button type="submit" class="popup__btn-save">Сохранить</button>
+            <form class="popup__container" name="edit-profile" novalidate>
+                <fieldset class="form-set">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input required id="name-input" type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name" minlength="2" maxlength="40">
+                    <span class="popup__input_error name-input-error"></span>
+                    <input required id="information-input" type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information" minlength="2" maxlength="200">
+                    <span class="popup__input_error information-input-error"></span>
+                    <button type="submit" class="popup__btn-save">Сохранить</button>
+                </fieldset>
             </form>
         </div>
     </div>

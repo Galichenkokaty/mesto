@@ -26,6 +26,21 @@ const card = cardTemplate.querySelector(".element").cloneNode(true);
 
 
 
+function closeClickOverlay(e) {
+    if (e.target === popupEditProfile || e.target === popupAddCard || e.target === popupCardImage) {
+        const popupOpen = e.target.closest('.popup_opened');
+        closePopup(popupOpen);
+    };
+
+};
+
+function closePopupEsc(e) {
+    if (e.key === 'Escape') {
+        const popupOpen = document.querySelector('.popup_opened');
+        closePopup(popupOpen);
+    };
+};
+
 function openPopup(popup) {
     popup.classList.add('popup_opened');
 };
@@ -67,8 +82,6 @@ function editProfileFormSubmitHandler(evt) {
     closePopupEdit();
 };
 
-
-//Спасибо за помощь)
 function addElementFormSubmitHandler(evt) {
     evt.preventDefault();
 
@@ -77,7 +90,6 @@ function addElementFormSubmitHandler(evt) {
     closePopupAdd();
 
 };
-
 
 const initialCards = [{
         name: 'Мыс Фиолент',
@@ -104,7 +116,6 @@ const initialCards = [{
         link: './image/panorama_oborona_sevastopolja_22.jpg'
     }
 ];
-
 
 
 const renderCard = function(container, cardElement) {
@@ -138,6 +149,73 @@ function createCard({ name, link }) {
 
 };
 
+const popupForm = document.querySelector('.popup__container');
+const formInput = popupForm.querySelector('.popup__input');
+
+
+const showError = (formPopup, inputPopup, errorMessage) => {
+    const errorElement = formPopup.querySelector(`.${inputPopup.id}_error`);
+    inputPopup.classList.add('popup__input_type_error');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add('popup__input-error_active');
+};
+
+const hideError = (formPopup, inputPopup) => {
+    const errorElement = formPopup.querySelector(`.${inputPopup.id}_error`);
+    inputPopup.classList.remove('form__input_type_error');
+    errorElement.classList.remove('form__input-error_active');
+    errorElement.textContent.reset;
+};
+
+const checkInputValidity = (formPopup, inputPopup) => {
+    if (!inputPopup.validity.valid) {
+        showError(formPopup, inputPopup, inputPopup.validationMessage);
+    } else {
+        hideError(formPopup, inputPopup);
+    };
+};
+
+function setEventListeners(formPopup) {
+    const inputList = Array.from(formPopup.querySelectorAll('.popup__input'));
+    const buttonForm = formPopup.querySelector('.popup__btn-save');
+    toggleButtonState(inputList, buttonForm);
+    inputList.forEach((inputPopup) => {
+        inputPopup.addEventListener('input', function() {
+            checkInputValidity(formPopup, inputPopup);
+            toggleButtonState(inputList, buttonForm);
+        });
+    });
+};
+
+function enableValidation() {
+    const popupList = Array.from(document.querySelectorAll('.popup__container'));
+    popupList.forEach((formPopup) => {
+        formPopup.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+        const fieldsetList = Array.from(formPopup.querySelectorAll('.form-set'));
+        fieldsetList.forEach((fieldSet) => {
+            setEventListeners(fieldSet);
+        });
+
+    });
+};
+
+enableValidation();
+
+function hasInvalidInput(inputList) {
+    return inputList.some((inputPopup) => {
+        return !inputPopup.validity.valid;
+    })
+};
+
+function toggleButtonState(inputList, buttonForm) {
+    if (hasInvalidInput(inputList)) {
+        buttonForm.classList.add('popup__btn-save_inactive');
+    } else {
+        buttonForm.classList.remove('popup__btn-save_inactive');
+    };
+};
 
 
 
@@ -148,3 +226,5 @@ buttonCloseAdd.addEventListener('click', closePopupAdd);
 buttonCloseEdit.addEventListener('click', closePopupEdit);
 formCard.addEventListener('submit', addElementFormSubmitHandler);
 buttonCloseElement.addEventListener('click', closeImageCard);
+document.addEventListener('keydown', closePopupEsc);
+document.addEventListener('click', closeClickOverlay);

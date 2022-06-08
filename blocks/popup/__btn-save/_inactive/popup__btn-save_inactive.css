@@ -1,0 +1,8 @@
+.popup__btn-save_inactive {
+    opacity: 0.2;
+}
+
+.popup__btn-save:hover {
+    opacity: 0.2;
+    cursor: default;
+}
