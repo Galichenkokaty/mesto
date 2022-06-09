@@ -35,6 +35,7 @@
         <p class="footer__copyright">&copy; 2022. Mesto Russia</p>
     </footer>
 
+
     <div class="popup popup_addElement">
         <div class="popup__body">
             <button type="button" class="popup__close" name="closeAdd"></button>
@@ -45,7 +46,22 @@
                     <span class="popup__input-error title-input-error"></span>
                     <input required id="link-input" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link" name="linkEement">
                     <span class="popup__input-error link-input-error"></span>
-                    <button type="submit" class="popup__btn-save popup__btn-save_inactive">Создать</button>
+                    <button disabled="true" type="submit" class="popup__btn-save popup__btn-save_inactive">Создать</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_editProfile">
+        <div class="popup__body">
+            <button type="button" class="popup__close" name="closeEdit"></button>
+            <form class="popup__container" name="edit-profile" novalidate>
+                <fieldset class="form-set">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input required id="name-input" type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name" minlength="2" maxlength="40">
+                    <span class="popup__input-error name-input-error"></span>
+                    <input required id="information-input" type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information" minlength="2" maxlength="200">
+                    <span class="popup__input-error information-input-error"></span>
+                    <button disabled="true" type="submit" class="popup__btn-save popup__btn-save_inactive">Сохранить</button>
                 </fieldset>
             </form>
         </div>
@@ -57,21 +73,7 @@
             <p class="popup__text"></p>
         </div>
     </div>
-    <div class="popup popup_editProfile">
-        <div class="popup__body">
-            <button type="button" class="popup__close" name="closeEdit"></button>
-            <form class="popup__container" name="edit-profile" novalidate>
-                <fieldset class="form-set">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <input required id="name-input" type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name" minlength="2" maxlength="40">
-                    <span class="popup__inputerror name-input-error"></span>
-                    <input required id="information-input" type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information" minlength="2" maxlength="200">
-                    <span class="popup__inputerror information-input-error"></span>
-                    <button type="submit" class="popup__btn-save popup__btn-save_inactive">Сохранить</button>
-                </fieldset>
-            </form>
-        </div>
-    </div>
+
     <template id="template__element">
       <article class="element">
         <button aria-label="trash" class="element__trash" type="button"></button>
@@ -83,6 +85,7 @@
       </article>
     </template>
     <script defer src="./script/index.js"></script>
+    <script defer src="./script/validate.js"></script>
 </body>
 
 </html>
