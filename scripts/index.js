@@ -2,7 +2,7 @@ const popupOpen = document.querySelector('.profile__edit');
 const buttonCloseAdd = document.querySelector('button[name="closeAdd"]');
 const buttonCloseEdit = document.querySelector('button[name="closeEdit"]');
 const buttonCloseElement = document.querySelector('button[name="closeImage"]');
-const closeImage = document.querySelector('button[name="closeImage"]');
+const buttoncloseImage = document.querySelector('button[name="closeImage"]');
 const popupEditProfile = document.querySelector('.popup_editProfile');
 const formProfile = document.querySelector('form[name="edit-profile"]');
 const nameInput = document.querySelector('.popup__input_line_name');
@@ -60,17 +60,20 @@ function openEditProfilePopup() {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    buttonSave.disabled = true;
-    buttonSave.classList.add('popup__btn-save_inactive');
     document.removeEventListener('keydown', closePopupEsc);
 };
 
 function closePopupEdit() {
     closePopup(popupEditProfile);
+    buttonSave.disabled = true;
+    buttonSave.classList.add('popup__btn-save_inactive');
 };
 
 function closePopupAdd() {
     closePopup(popupAddCard);
+
+    buttonSave.disabled = true;
+    buttonSave.classList.add('popup__btn-save_inactive');
     formAddElement.reset();
 
 };
@@ -142,6 +145,8 @@ function createCard({ name, link }) {
     const imageCard = card.querySelector('.element__image');
     card.querySelector(".element__title").textContent = name;
     imageCard.src = link;
+    imageCard.alt = 'Фотография карточки';
+    imagePopupCard.alt = 'Фотография карточки';
 
     card.querySelector('.element__like').addEventListener('click', function(evt) {
         evt.target.classList.toggle('element__like_active');
@@ -150,10 +155,12 @@ function createCard({ name, link }) {
         card.remove();
     });
     imageCard.addEventListener('click', function() {
-        popupCardImage.classList.add('popup_opened');
+        openPopup(popupCardImage);
 
         titlePopupCard.textContent = name;
         imagePopupCard.src = link;
+        imageCard.alt = 'Фотография карточки';
+        imagePopupCard.alt = 'Фотография карточки';
     });
 
     return card;
