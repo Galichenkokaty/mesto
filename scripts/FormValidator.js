@@ -13,37 +13,37 @@ export class FormValidator {
     _setEventListeners(form) {
         const inputList = Array.from(form.querySelectorAll(this._inputSelector));
         const buttonForm = form.querySelector(this._submitButtonSelector);
+        console.log(this._inputSelector);
+
         inputList.forEach((inputElement) => {
-            inputPopup.addEventListener('input', function() {
+            inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
+
                 this._toggleButtonState(inputList, buttonForm);
             });
         });
-        console.log('kjk')
     }
 
     _showError = (inputElement, errorMessage) => {
-        const errorElement = document.querySelector('.popup__input-error');
-        console.log('errorElement');
+        const errorElement = document.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._errorClass);
     }
 
     _hideError = (inputElement) => {
-        const errorElement = document.querySelector('.popup__input-error');
+        const errorElement = document.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent.reset;
     }
 
-    _checkInputValidity = (inputElement) => {
+    _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
             this._showError(inputElement, inputElement.validationMessage);
         } else {
             this._hideError(inputElement);
         };
-        console.log('vnj')
     }
 
     _hasInvalidInput(inputList) {
@@ -59,7 +59,6 @@ export class FormValidator {
             buttonForm.classList.remove(this._inactiveButtonClass);
             buttonForm.disabled = false;
         };
-        console.log('bb')
     }
 
     enableValidation() {
@@ -70,7 +69,6 @@ export class FormValidator {
                 e.preventDefault();
             });
         });
-        console.log('vko')
     }
 
 

@@ -27,8 +27,8 @@ const buttonSave = document.querySelector('.popup__btn-save');
 const popupElement = document.querySelectorAll('.popup__container');
 
 const validate = {
-    inputSelector: 'popup__input',
-    submitButtonSelector: 'popup__btn-save',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__btn-save',
     inactiveButtonClass: 'popup__btn-save_inactive',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input_error_active'
@@ -152,7 +152,7 @@ function createCard({ link, name }) {
 
 };
 
-/*function addElementFormSubmitHandler(evt) {
+function addElementFormSubmitHandler(evt) {
     evt.preventDefault();
 
     renderCard(cardsContainer, createCard({ link: linkInput.value, name: titleInput.value }));
@@ -163,7 +163,7 @@ function createCard({ link, name }) {
 
 
 
-};*/
+}
 
 
 formProfile.addEventListener('submit', editProfileFormSubmitHandler);
@@ -171,7 +171,7 @@ popupOpen.addEventListener('click', openEditProfilePopup);
 cardAdd.addEventListener('click', openAddElement);
 buttonCloseAdd.addEventListener('click', closePopupAdd);
 buttonCloseEdit.addEventListener('click', closePopupEdit);
-//formCard.addEventListener('submit', addElementFormSubmitHandler);
+formCard.addEventListener('submit', addElementFormSubmitHandler);
 buttonCloseElement.addEventListener('click', closeImageCard);
 popupAddCard.addEventListener('click', closeClickOverlay);
 popupEditProfile.addEventListener('click', closeClickOverlay);
