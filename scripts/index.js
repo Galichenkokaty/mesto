@@ -1,71 +1,43 @@
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
-const popupOpen = document.querySelector('.profile__edit');
-const buttonCloseAdd = document.querySelector('button[name="closeAdd"]');
-const buttonCloseEdit = document.querySelector('button[name="closeEdit"]');
-const buttonCloseElement = document.querySelector('button[name="closeImage"]');
-const buttoncloseImage = document.querySelector('button[name="closeImage"]');
-const popupEditProfile = document.querySelector('.popup_editProfile');
-const formProfile = document.querySelector('form[name="edit-profile"]');
-const nameInput = document.querySelector('.popup__input_line_name');
-const jobInput = document.querySelector('.popup__input_line_information');
-const name = document.querySelector('.profile__title');
-const info = document.querySelector('.profile__subtitle');
-const cardAdd = document.querySelector('.profile__button-add');
-const popupAddCard = document.querySelector('.popup_addElement');
-const cardsContainer = document.querySelector(".elements");
-const titleInput = document.querySelector('.popup__input_line_title');
-const linkInput = document.querySelector('.popup__input_line_link');
-const formCard = document.querySelector('form[name="add-element"]');
-const trash = document.querySelector('.element__trash');
-const popupCardImage = document.querySelector('.popup_element');
-const titlePopupCard = document.querySelector(".popup__text");
-const imagePopupCard = document.querySelector(".popup__image");
-const imageCard = document.querySelector('.element__image');
-const formAddElement = document.getElementById('form__add-element');
-const buttonSave = document.querySelector('.popup__btn-save');
-const popupElement = document.querySelectorAll('.popup__container');
-
-const validate = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__btn-save',
-    inactiveButtonClass: 'popup__btn-save_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input_error_active'
-};
+import {
+    initialCards,
+    validate,
+    popupOpen,
+    buttonCloseAdd,
+    buttonCloseEdit,
+    buttonCloseElement,
+    buttoncloseImage,
+    popupEditProfile,
+    formProfile,
+    nameInput,
+    jobInput,
+    name,
+    info,
+    cardAdd,
+    popupAddCard,
+    cardsContainer,
+    titleInput,
+    linkInput,
+    formCard,
+    trash,
+    popupCardImage,
+    titlePopupCard,
+    imagePopupCard,
+    imageCard,
+    formAddElement,
+    buttonSave,
+    popupElement,
+    popupInputs
+} from './constans.js';
 
 
-Array.from(document.forms).forEach((formSelector) => {
-    const form = new FormValidator(validate, formSelector);
-    form.enableValidation();
-});
+const formAdd = new FormValidator(validate, formCard);
+
+const formEdit = new FormValidator(validate, formProfile);
 
 
-const initialCards = [{
-        name: 'Мыс Фиолент',
-        link: './image/fiolent.jpg'
-    },
-    {
-        name: '35 Береговая Батарея',
-        link: './image/35batareya.jpg'
-    },
-    {
-        name: 'Херсонес',
-        link: './image/hersones.jpg'
-    },
-    {
-        name: 'Графская Пристань',
-        link: './image/grafskaya.jpg'
-    },
-    {
-        name: 'Памятник Затопленным Кораблям',
-        link: './image/zatopl.jpg'
-    },
-    {
-        name: 'Панорама "Оборона Севастополя 1854-1855 гг."',
-        link: './image/panorama_oborona_sevastopolja_22.jpg'
-    }
-];
+
 initialCards.forEach(function(card) {
     renderCard(cardsContainer, createCard(card));
 });
@@ -108,15 +80,15 @@ function closePopup(popup) {
 
 function closePopupEdit() {
     closePopup(popupEditProfile);
-    buttonSave.disabled = true;
-    buttonSave.classList.add('popup__btn-save_inactive');
+    const inputList = Array.from(formProfile.querySelectorAll(validate.inputSelector));
+    formEdit.toggleButtonState(inputList, buttonSave);
 };
 
 function closePopupAdd() {
     closePopup(popupAddCard);
 
-    buttonSave.disabled = true;
-    buttonSave.classList.add('popup__btn-save_inactive');
+    const inputList = Array.from(formCard.querySelectorAll(validate.inputSelector));
+    formAdd.toggleButtonState(inputList, buttonSave);
     formAddElement.reset();
 
 };
@@ -128,7 +100,7 @@ function closeImageCard() {
 function openImageCard({ link, name }) {
     titlePopupCard.textContent = name;
     imagePopupCard.src = link;
-    imagePopupCard.alt = 'Фотография карточки';
+    imagePopupCard.alt = name;
 
     openPopup(popupCardImage);
 };
@@ -165,6 +137,8 @@ function addElementFormSubmitHandler(evt) {
 
 }
 
+formAdd.enableValidation();
+formEdit.enableValidation();
 
 formProfile.addEventListener('submit', editProfileFormSubmitHandler);
 popupOpen.addEventListener('click', openEditProfilePopup);
@@ -176,6 +150,3 @@ buttonCloseElement.addEventListener('click', closeImageCard);
 popupAddCard.addEventListener('click', closeClickOverlay);
 popupEditProfile.addEventListener('click', closeClickOverlay);
 popupCardImage.addEventListener('click', closeClickOverlay);
-popupAddCard.addEventListener('keydown', closePopupEsc);
-popupEditProfile.addEventListener('keydown', closePopupEsc);
-popupCardImage.addEventListener('keydown', closePopupEsc);
