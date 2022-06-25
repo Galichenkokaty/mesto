@@ -80,16 +80,13 @@ function closePopup(popup) {
 
 function closePopupEdit() {
     closePopup(popupEditProfile);
-    const inputList = Array.from(formProfile.querySelectorAll(validate.inputSelector));
-    formEdit.toggleButtonState(inputList, buttonSave);
+    formEdit.toggleButtonState();
 };
 
 function closePopupAdd() {
     closePopup(popupAddCard);
-
-    const inputList = Array.from(formCard.querySelectorAll(validate.inputSelector));
-    formAdd.toggleButtonState(inputList, buttonSave);
     formAddElement.reset();
+    formAdd.toggleButtonState();
 
 };
 
