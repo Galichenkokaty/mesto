@@ -1,8 +1,9 @@
-import { FormValidator } from "./FormValidator.js";
-import { Card } from "./Card.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { UserInfo } from "./UserInfo.js";
-import { Section } from "./Section.js";
+import './pages/index.css'
+import { FormValidator } from "./components/FormValidator.js";
+import { Card } from "./components/Card.js";
+import { PopupWithForm } from "./components/PopupWithForm.js";
+import { UserInfo } from "./components/UserInfo.js";
+import { Section } from "./components/Section.js";
 import {
     initialCards,
     validate,
@@ -33,8 +34,8 @@ import {
     popupElement,
     popupInputs,
     element
-} from './constans.js';
-import { PopupWithImage } from "./PopupWithImage.js";
+} from './components/constans.js';
+import { PopupWithImage } from "./components/PopupWithImage.js";
 
 
 const rendererCards = new Section({

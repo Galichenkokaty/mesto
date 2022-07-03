@@ -38,26 +38,26 @@ export const validate = {
 
 export const initialCards = [{
         name: 'Мыс Фиолент',
-        link: './image/fiolent.jpg'
+        link: 'https://photocentra.ru/images/main68/686288_main.jpg'
     },
     {
         name: '35 Береговая Батарея',
-        link: './image/35batareya.jpg'
+        link: 'https://avatars.mds.yandex.net/i?id=44ce94d07a42cd71ada149199a72b57b-5733951-images-thumbs&n=13'
     },
     {
         name: 'Херсонес',
-        link: './image/hersones.jpg'
+        link: 'https://avatars.mds.yandex.net/i?id=49ef144dec26125809bb52694adec5a8-4391548-images-thumbs&n=13'
     },
     {
         name: 'Графская Пристань',
-        link: './image/grafskaya.jpg'
+        link: 'https://avatars.mds.yandex.net/i?id=f90ae3410cc03cd3fef795497d36a494-5177173-images-thumbs&n=13'
     },
     {
         name: 'Памятник Затопленным Кораблям',
-        link: './image/zatopl.jpg'
+        link: 'https://avatars.mds.yandex.net/i?id=e9d2a4ba46e3ec087a2fa7d85db95b0c-4011302-images-thumbs&n=13'
     },
     {
         name: 'Панорама "Оборона Севастополя 1854-1855 гг."',
-        link: './image/panorama_oborona_sevastopolja_22.jpg'
+        link: 'https://avatars.mds.yandex.net/i?id=e00d3d24b6cd6dea562ca8507768b55a-5235436-images-thumbs&n=13'
     }
 ];
