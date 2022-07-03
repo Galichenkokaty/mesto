@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/Galichenkokaty/mesto.git"
   },
-  "author": "Katerina Galichenko",
+  "keywords": [
+    "Lolita2013"
+  ],
+  "author": "Katerina",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Galichenkokaty/mesto/issues"

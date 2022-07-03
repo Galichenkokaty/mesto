@@ -1,5 +1,8 @@
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
+import { Section } from "./Section.js";
 import {
     initialCards,
     validate,
@@ -28,17 +31,54 @@ import {
     formAddElement,
     buttonSave,
     popupElement,
-    popupInputs
+    popupInputs,
+    element
 } from './constans.js';
+import { PopupWithImage } from "./PopupWithImage.js";
 
+
+const rendererCards = new Section({
+    cards: initialCards,
+    renderer: (elem)=>{
+        const card = new Card(elem,"#template__element",()=>{openPopupWithImage.open(elem)});
+        const cardElement = card.generateCard();
+        rendererCards.addCard(cardElement);
+
+    }
+    },'.elements'
+    );
+
+rendererCards.renderCards();
 
 const formAdd = new FormValidator(validate, formCard);
 
 const formEdit = new FormValidator(validate, formProfile);
 
+const popupTypeEdit = new PopupWithForm(".popup_editProfile",
+    {handleFormSubmit: (item) => {
+        const information = new UserInfo({name, info});
+        information.setUserInfo(item);
+    }
+});
+
+popupTypeEdit.setEventListeners();
 
 
-initialCards.forEach(function(card) {
+const popupTypeAdd = new PopupWithForm(".popup_addElement",
+    {handleFormSubmit: (item) => {
+        const information = new UserInfo({name, info});
+        information.setUserInfo(item);
+    }
+});
+
+popupTypeAdd.setEventListeners();
+
+
+
+const openPopupWithImage = new PopupWithImage('.popup_element');
+openPopupWithImage.setEventListeners();
+
+/*initialCards.forEach(function(card) {
     renderCard(cardsContainer, createCard(card));
 });
 
@@ -73,7 +113,7 @@ function openEditProfilePopup() {
 
 };
 
-function closePopup(popup) {
+/*function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupEsc);
 };
@@ -101,7 +141,7 @@ function openImageCard({ link, name }) {
 
     openPopup(popupCardImage);
 };
-
+*/
 function renderCard(container, cardElement) {
     container.prepend(cardElement);
 };
@@ -111,12 +151,11 @@ function editProfileFormSubmitHandler(evt) {
 
     name.textContent = nameInput.value;
     info.textContent = jobInput.value;
-    closePopupEdit();
-
+    popupTypeEdit.close();
 };
 
 function createCard({ link, name }) {
-    const card = new Card({ link, name }, "#template__element", openImageCard);
+    const card = new Card({ link, name }, "#template__element", ()=>{openPopupWithImage.open(name,link)});
     return card.generateCard();
 
 };
@@ -126,7 +165,7 @@ function addElementFormSubmitHandler(evt) {
 
     renderCard(cardsContainer, createCard({ link: linkInput.value, name: titleInput.value }));
 
-    closePopupAdd();
+   popupTypeAdd.close();
     //buttonSave.disabled = true;
     //buttonSave.classList.add('popup__btn-save_inactive');
 
@@ -137,13 +176,14 @@ function addElementFormSubmitHandler(evt) {
 formAdd.enableValidation();
 formEdit.enableValidation();
 
+
 formProfile.addEventListener('submit', editProfileFormSubmitHandler);
-popupOpen.addEventListener('click', openEditProfilePopup);
-cardAdd.addEventListener('click', openAddElement);
-buttonCloseAdd.addEventListener('click', closePopupAdd);
-buttonCloseEdit.addEventListener('click', closePopupEdit);
+popupOpen.addEventListener('click', ()=>{popupTypeEdit.open()});
+cardAdd.addEventListener('click', ()=>{popupTypeAdd.open()});
+buttonCloseAdd.addEventListener('click', ()=>{popupTypeAdd.close()});
+buttonCloseEdit.addEventListener('click', ()=>{popupTypeEdit.close()});
 formCard.addEventListener('submit', addElementFormSubmitHandler);
-buttonCloseElement.addEventListener('click', closeImageCard);
-popupAddCard.addEventListener('click', closeClickOverlay);
-popupEditProfile.addEventListener('click', closeClickOverlay);
-popupCardImage.addEventListener('click', closeClickOverlay);
+buttonCloseElement.addEventListener('click', ()=> {openPopupWithImage.close()});
+//popupAddCard.addEventListener('click', closeClickOverlay);
+//popupEditProfile.addEventListener('click', closeClickOverlay);
+//popupCardImage.addEventListener('click', closeClickOverlay);

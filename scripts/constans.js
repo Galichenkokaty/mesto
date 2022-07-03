@@ -24,6 +24,7 @@ export const formAddElement = document.getElementById('form__add-element');
 export const buttonSave = document.querySelector('.popup__btn-save');
 export const popupElement = document.querySelectorAll('.popup__container');
 export const popupInputs = document.querySelectorAll('.popup__input');
+export const element = document.querySelector('.element');
 
 
 export const validate = {
