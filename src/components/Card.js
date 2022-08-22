@@ -4,6 +4,7 @@ export class Card {
         this._name = name;
         this._templateElement = templateElement;
         this._openPopupCard = openPopupCard;
+        this._elementLike = document.querySelectorAll('.element__like');
     };
 
     _listEventListeners() {
@@ -25,7 +26,7 @@ export class Card {
     }
     _likeCardHandler = () => {
         this._element.querySelector('.element__like').classList.toggle('element__like_active');
-        console.log('good');
+        console.log(this._elementLike);
     }
 
     _trashCardHandler = () => {

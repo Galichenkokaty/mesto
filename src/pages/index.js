@@ -38,12 +38,20 @@ import {
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
 
+function createCard({link,name}) {
+    const card = new Card({link,name},"#template__element",()=>{openPopupWithImage.open({link,name})});
+    const cardElement = card.generateCard();
+    rendererCards.addCard(cardElement);
+    
+return cardElement
+}
+
+
 const rendererCards = new Section({
     cards: initialCards,
-    renderer: (elem)=>{
-        const card = new Card(elem,"#template__element",()=>{openPopupWithImage.open(elem)});
-        const cardElement = card.generateCard();
-        rendererCards.addCard(cardElement);
+    renderer: ({link,name})=>{
+        createCard({link,name});
+        
     }
     },'.elements'
     );
@@ -71,10 +79,10 @@ popupTypeEdit.setEventListeners();
 
 const popupTypeAdd = new PopupWithForm(".popup_addElement",
     {handleFormSubmit: ({linkElement,titleElement}) => {
-        const card = new Card({ link: linkElement, name:titleElement }, "#template__element", ()=>{openPopupWithImage.open({link: linkElement, name:titleElement})}); 
-        rendererCards.addCard(card.generateCard());
+        createCard({link:linkElement,name:titleElement})
         popupTypeAdd.close();
         popupTypeAdd.resetInput();
+        formAdd.toggleButtonState();
         
     }
 });

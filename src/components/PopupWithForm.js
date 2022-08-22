@@ -1,5 +1,4 @@
 import { Popup } from "./Popup.js";
-
 export  class PopupWithForm extends Popup {
   constructor( popupSelector, {handleFormSubmit }) {
     super(popupSelector);
@@ -27,8 +26,6 @@ setEventListeners() {
     this._form.addEventListener('submit', (event) => {
         event.preventDefault();
         this._handleFormSubmit(this._getInputValues());
-        this._form.querySelector('.popup__btn-save').disabled = true;
-        this._form.querySelector('.popup__btn-save').classList.add('popup__btn-save_inactive');
-    });
+       });
 }
 }
