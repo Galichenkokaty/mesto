@@ -64,7 +64,7 @@ const formAdd = new FormValidator(validate, formCard);
 
 const formEdit = new FormValidator(validate, formProfile);
 
-const userInfoInProfile = new UserInfo({name, info});
+const userInfoInProfile = new UserInfo({name:name, info:info});
 
 const popupTypeEdit = new PopupWithForm(".popup_editProfile",
     {handleFormSubmit: (item) => {
@@ -72,7 +72,6 @@ const popupTypeEdit = new PopupWithForm(".popup_editProfile",
         popupTypeEdit.close();
     }
 });
-
 popupTypeEdit.setEventListeners();
 
 
@@ -98,7 +97,17 @@ formAdd.enableValidation();
 formEdit.enableValidation();
 
 
-popupOpen.addEventListener('click', ()=>{popupTypeEdit.open();userInfoInProfile.getUserInfo();});
+popupOpen.addEventListener('click', 
+()=>{
+    const userInformation = userInfoInProfile.getUserInfo();
+
+    nameInput.value = userInformation.name;
+    jobInput.value = userInformation.information;
+    
+    popupTypeEdit.open();
+
+});
+
 cardAdd.addEventListener('click', ()=>{popupTypeAdd.open()});
 //popupAddCard.addEventListener('click', closeClickOverlay);
 //popupEditProfile.addEventListener('click', closeClickOverlay);

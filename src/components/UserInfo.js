@@ -7,9 +7,10 @@ export class UserInfo {
     }
 
     getUserInfo() {
-        this._inputUserName.value = this._userName.textContent; 
-        this._inputUserInfo.value = this._userInfo.textContent; 
-      
+        return{
+        name: this._userName.textContent,
+        information: this._userInfo.textContent
+      }
     }
 
     setUserInfo(data) {
