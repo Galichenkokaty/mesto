@@ -72,7 +72,7 @@ const popupTypeEdit = new PopupWithForm(".popup_editProfile",
         popupTypeEdit.close();
     }
 });
-userInfoInProfile.getUserInfo();
+
 popupTypeEdit.setEventListeners();
 
 
@@ -98,7 +98,7 @@ formAdd.enableValidation();
 formEdit.enableValidation();
 
 
-popupOpen.addEventListener('click', ()=>{popupTypeEdit.open()});
+popupOpen.addEventListener('click', ()=>{popupTypeEdit.open();userInfoInProfile.getUserInfo();});
 cardAdd.addEventListener('click', ()=>{popupTypeAdd.open()});
 //popupAddCard.addEventListener('click', closeClickOverlay);
 //popupEditProfile.addEventListener('click', closeClickOverlay);

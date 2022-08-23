@@ -4,13 +4,13 @@ export class Card {
         this._name = name;
         this._templateElement = templateElement;
         this._openPopupCard = openPopupCard;
-        this._elementLike = document.querySelectorAll('.element__like');
+        
     };
 
     _listEventListeners() {
         this._element.querySelector('.element__image').addEventListener('click', this._imageClickHandler);
 
-        this._element.querySelector('.element__like').addEventListener('click', this._likeCardHandler);
+        this._elementLike.addEventListener('click', this._likeCardHandler);
 
         this._element.querySelector('.element__trash').addEventListener('click', this._trashCardHandler);
     }
@@ -19,14 +19,15 @@ export class Card {
         const cardTemplate = document.querySelector(this._templateElement).content;
         const card = cardTemplate.querySelector(".element").cloneNode(true);
         this._element = card;
+        this._elementLike = this._element.querySelector('.element__like');
     }
 
     _imageClickHandler = () => {
         this._openPopupCard({ link: this._link, name: this._name });
     }
     _likeCardHandler = () => {
-        this._element.querySelector('.element__like').classList.toggle('element__like_active');
-        console.log(this._elementLike);
+        this._elementLike.classList.toggle('element__like_active');
+        
     }
 
     _trashCardHandler = () => {
@@ -42,6 +43,7 @@ export class Card {
         img.src = this._link;
         this._element.querySelector('.element__title').textContent = this._name;
         return this._element;
+        
     }
 
 }
