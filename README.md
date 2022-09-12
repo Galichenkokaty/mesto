@@ -11,4 +11,4 @@
 
 ссылка на GitHub Pages:
 
-https://galichenkokaty.github.io/mesto/index.html
+https://galichenkokaty.github.io/mesto
