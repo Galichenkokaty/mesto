@@ -15,6 +15,7 @@ export const cardsContainer = document.querySelector(".elements");
 export const titleInput = document.querySelector('.popup__input_line_title');
 export const linkInput = document.querySelector('.popup__input_line_link');
 export const formCard = document.querySelector('form[name="add-element"]');
+export const formAvatar = document.querySelector('form[name="edit-avatar"]');
 export const trash = document.querySelector('.element__trash');
 export const popupCardImage = document.querySelector('.popup_element');
 export const titlePopupCard = document.querySelector(".popup__text");
@@ -25,6 +26,7 @@ export const buttonSave = document.querySelector('.popup__btn-save');
 export const popupElement = document.querySelectorAll('.popup__container');
 export const popupInputs = document.querySelectorAll('.popup__input');
 export const element = document.querySelector('.element');
+export const avatar = document.querySelector('.profile__avatar');
 
 
 export const validate = {

@@ -16,10 +16,11 @@
     <main class="main">
         <section class="profile">
             <div class="profile__info">
-                <img class="profile__avatar" src="<%=require('./src/image/sevastopol.jpg')%>" alt="аватар">
+                <img class="profile__avatar" src="" alt="аватар">
+                <button class="profile__avatar-btn"></button>
                 <div class="profile__text">
-                    <h1 class="profile__title">Севастополь</h1>
-                    <p class="profile__subtitle">Основные достопримечательности</p>
+                    <h1 class="profile__title"></h1>
+                    <p class="profile__subtitle"></p>
                     <button aria-label="Редактировать профиль" type="button" class="profile__edit"></button>
                 </div>
 
@@ -56,18 +57,36 @@
             </form>
         </div>
     </div>
+    <div class="popup popup_deleteConfirm">
+        <div class="popup__body ">
+            <button type="button" class="popup__close popup__close_deleteConfirm" name="closeAdd"></button>
+            <form class="popup__container " name="add-element" id="form__add-element" novalidate>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <button type="submit" class="popup__btn-save">Да</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_editAvatar">
+        <div class="popup__body">
+            <button type="button" class="popup__close popup__close_editAvatar" name="closeEdit"></button>
+            <form class="popup__container" name="edit-avatar" id="form__edit_profile" novalidate>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <input required id="link-input" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_line_link-avatar" name="linkAvatar">
+                <span class="popup__input-error link-input-error"></span>
+                <button disabled="true" type="submit" class="popup__btn-save popup__btn-save_inactive">Сохранить</button>
+            </form>
+        </div>
+    </div>
     <div class="popup popup_editProfile">
         <div class="popup__body">
             <button type="button" class="popup__close" name="closeEdit"></button>
             <form class="popup__container" name="edit-profile" id="form__edit_profile" novalidate>
-
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input required id="name-input" type="text" placeholder="Имя" class="popup__input popup__input_line_name" name="name" minlength="2" maxlength="40">
                 <span class="popup__input-error name-input-error"></span>
                 <input required id="information-input" type="text" placeholder="О себе" class="popup__input popup__input_line_information" name="information" minlength="2" maxlength="200">
                 <span class="popup__input-error information-input-error"></span>
                 <button disabled="true" type="submit" class="popup__btn-save popup__btn-save_inactive">Сохранить</button>
-
             </form>
         </div>
     </div>
@@ -85,12 +104,14 @@
           <img class="element__image" alt="Картинка в профиле" >
           <div class="element__text">
               <h2 class="element__title"></h2>
-              <button aria-label="like" class="element__like" type="button"></button>
+              <div class="element__like">
+              <button aria-label="like" class="element__likes" type="button"></button>
+              <span class="element__like-number"></span>
+              </div>
           </div>
       </article>
     </template>
-    <script type="module" defer src="./src/index.js"></script>
-
+    
 </body>
 
 </html>

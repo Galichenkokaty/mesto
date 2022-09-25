@@ -2,7 +2,8 @@
     min-width: 358px;
     min-height: 50px;
     margin: auto;
-    margin-top: 48px;
+    margin-top: 38px;
+    margin-bottom: 36px;
     background-color: black;
     color: white;
     border: 0;
@@ -24,7 +25,8 @@
         min-width: 238px;
         max-height: 46px;
         margin: auto;
-        margin-top: 45px;
+        margin-top: 30px;
+        margin-bottom: 15px;
         display: block;
         font-size: 14px;
     }

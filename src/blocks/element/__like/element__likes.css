@@ -1,0 +1,16 @@
+.element__likes {
+    align-self: flex-end;
+    width: 22px;
+    height: 19px;
+    font-size: 24px;
+    margin-top: 15px;
+    background: url(../../../image/like.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 0;
+}
+
+.element__likes:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
