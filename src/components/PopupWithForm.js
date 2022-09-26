@@ -18,7 +18,8 @@ _getInputValues = () => {
 }
 
 
-resetInput(){
+close(){
+  super.close();
   this._form.reset();
 }
 
@@ -30,7 +31,6 @@ setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (event) => {
         event.preventDefault();
-        
         this._handleFormSubmit(this._getInputValues());
        });
 }

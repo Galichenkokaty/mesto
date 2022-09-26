@@ -45,11 +45,12 @@ export class Card {
   setLikes(likes){
     this._likes = likes;
     const likeNumber = this._element.querySelector('.element__like-number');
+    this._buttonLike = this._element.querySelector('.element__likes');
     likeNumber.textContent = this._likes.length;
     if(this.isLiked()){
-      this._element.querySelector('.element__likes').classList.add('element__like_active');
+      this._buttonLike.classList.add('element__like_active');
     }else{
-      this._element.querySelector('.element__likes').classList.remove('element__like_active');
+      this._buttonLike.classList.remove('element__like_active');
     }
   }
 

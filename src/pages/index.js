@@ -8,7 +8,8 @@ import { Api } from "../components/Api.js"
 import {
     initialCards,
     validate,
-    popupOpen,
+    buttonSave,
+    openFormEditProfile,
     formProfile,
     nameInput,
     jobInput,
@@ -30,25 +31,17 @@ const api = new Api({
 
 let userId
 // Загрузка готовых карточек и данных о пользователе с сервера
-api.getUserInfo()
-.then(res =>{
-  userId = res._id;
-  userInfoInProfile.setUserInfo(res);
+Promise.all([api.getUserInfo(),api.getInitialCards()])
+.then(([userData,initialCards]) =>{
+  userId = userData._id;
+  userInfoInProfile.setUserInfo(userData);
+    rendererCards.renderCards(initialCards);
+    console.log(initialCards)
+  })
+.catch((err) => {
+  console.log(`Ошибка: ${err}`);
 });
 
-api.getInitialCards()
-.then(cardList =>{
-  cardList.forEach(data =>{
-    const card = createCard({
-      link:data.link,
-      name:data.name,
-      likes:data.likes,
-      idCard:data._id,
-      userId:userId,
-      ownerId:data.owner._id})
-    rendererCards.addCard(card);
-  })
-})
 
 function createCard({link,name,likes,idCard,userId,ownerId}) {
     const card = new Card({link,name,likes, idCard, userId,ownerId},
@@ -63,6 +56,7 @@ function createCard({link,name,likes,idCard,userId,ownerId}) {
             card.trashCardHandler();
             confirmDeleteCard.close();
           })
+          .catch((err) =>{console.log(`Ошибка: ${err}`)})
         });
         confirmDeleteCard.open();
         },
@@ -89,7 +83,7 @@ return cardElement
 
 const rendererCards = new Section({
     renderer: (card)=>{
-        rendererCards.addCard(createCard(card));
+        rendererCards.addCard(createCard({link:card.link,name:card.name,likes:card.likes,idCard:card._id,userId:userId,ownerId:card.owner._id}));
     }
     },'.elements'
     );
@@ -109,8 +103,14 @@ const popupTypeEdit = new PopupWithForm({
       api.editUserInfo(item.name,item.information)
       .then( res =>{
       userInfoInProfile.setUserInfo(res);
-    }) 
-    popupTypeEdit.close();
+      popupTypeEdit.close();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        popupTypeEdit.loading(false);
+      });
     }
 });
 popupTypeEdit.setEventListeners();
@@ -124,10 +124,15 @@ const popupTypeAdd = new PopupWithForm({
         api.addCard(titleElement,linkElement)
         .then(res =>{
           createCard({link:res.link,name:res.name,likes:res.likes, idCard:res._id, userid:userId,ownerId:res.owner._id})
-        })
         popupTypeAdd.close();
-        popupTypeAdd.resetInput();
-        formAdd.toggleButtonState();   
+        location.reload();
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`);
+        })
+        .finally(() => {
+          popupTypeAdd.loading(false);
+        }); 
     }
 });
 popupTypeAdd.setEventListeners();
@@ -141,12 +146,18 @@ confirmDeleteCard.setEventListeners();
 const popupUpgradeAvatar = new PopupWithForm({
   popupSelector:".popup_editAvatar",
   handleFormSubmit: (data)=>{
-      //popupUpgradeAvatar.loading(true);
+      popupUpgradeAvatar.loading(true);
       api.editAvatar(data)
       .then((data)=>{
         avatar.src = data.avatar;
         popupUpgradeAvatar.close();
       })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        popupUpgradeAvatar.loading(false);
+      });
     }
   })
 popupUpgradeAvatar.setEventListeners();
@@ -158,13 +169,20 @@ formAdd.enableValidation();
 formEdit.enableValidation();
 formAvatarProfile.enableValidation();
 
-popupOpen.addEventListener('click', ()=>{
+openFormEditProfile.addEventListener('click', ()=>{
     const userInformation = userInfoInProfile.getUserInfo();
     nameInput.value = userInformation.name;
     jobInput.value = userInformation.info;
+    formEdit.toggleButtonState();
     popupTypeEdit.open();
 });
 
-cardAdd.addEventListener('click', ()=>{popupTypeAdd.open()});
+cardAdd.addEventListener('click', ()=>{
+  popupTypeAdd.open();
+  formAdd.toggleButtonState()
+});
 
-document.querySelector('.profile__avatar-btn').addEventListener('click',()=>{popupUpgradeAvatar.open()})
+document.querySelector('.profile__avatar-btn').addEventListener('click',()=>{
+  popupUpgradeAvatar.open();
+  formAvatarProfile.toggleButtonState();
+})
