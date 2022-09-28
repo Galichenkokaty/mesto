@@ -2,7 +2,7 @@ export class UserInfo {
     constructor( {name, info ,avatar} ) {
         this._userName = document.querySelector(name);
         this._userInfo = document.querySelector(info);
-        this._userAvatar = document.querySelector(avatar);   
+        this._userAvatar = document.querySelector(avatar);
     }
 
     getUserInfo() {
